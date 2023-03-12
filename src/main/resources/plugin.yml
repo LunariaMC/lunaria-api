@@ -1,0 +1,4 @@
+  name: LunaAPI
+  main: net.lunaria.api.core.API
+  version: 0.0.1
+  author: NeiZow

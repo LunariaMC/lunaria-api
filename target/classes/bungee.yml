@@ -1,0 +1,4 @@
+name: LunaAPI
+author: NeiZow
+version: 0.0.1
+main: net.lunaria.api.core.Bungee
