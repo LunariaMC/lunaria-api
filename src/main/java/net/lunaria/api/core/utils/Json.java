@@ -81,12 +81,12 @@ public class Json {
         return new GsonBuilder().serializeNulls().create().fromJson(get(key), new TypeToken<Map<K,V>>(){}.getType());
     }
 
-    public String encodeData() {
+    public String toJson() {
         return new Gson().toJson(data);
     }
 
     @SuppressWarnings("unchecked")
-    public void decodeData(String json) {
+    public void fromString(String json) {
         this.data = new GsonBuilder().serializeNulls().create().fromJson(json, new TypeToken<Map<String,String>>(){}.getType());
     }
 }

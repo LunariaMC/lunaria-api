@@ -1,7 +1,7 @@
 package net.lunaria.api.plugins.bungee.config;
 
 import lombok.SneakyThrows;
-import net.lunaria.api.core.Bungee;
+import net.lunaria.api.plugins.bungee.BungeeAPI;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
@@ -13,7 +13,7 @@ import java.nio.file.Files;
 
 public class ConfigGen {
 
-    private static Bungee instance = Bungee.getInstance();
+    private static BungeeAPI instance = BungeeAPI.getInstance();
     private static Configuration configuration;
 
     @SneakyThrows
