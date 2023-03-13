@@ -29,7 +29,7 @@ public class LunaPlayer {
     }
 
     //set
-    public static Data setPlayerData(UUID uuid, String json) {
+    public static Data setData(UUID uuid, String json) {
         data.put(uuid, fromJson(json));
         return data.get(uuid);
     }
