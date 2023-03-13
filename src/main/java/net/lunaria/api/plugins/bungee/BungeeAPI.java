@@ -1,9 +1,12 @@
 package net.lunaria.api.plugins.bungee;
 
+import lombok.Getter;
 import net.lunaria.api.core.connectors.RedisConnector;
 import net.lunaria.api.core.connectors.MongoConnector;
-import net.lunaria.api.core.connectors.RabbitConnector;
 import net.lunaria.api.core.config.Config;
+import net.lunaria.api.core.servers.Environment;
+import net.lunaria.api.core.servers.ServerManager;
+import net.lunaria.api.core.servers.ServerQueue;
 import net.lunaria.api.plugins.bungee.config.ConfigGen;
 import net.lunaria.api.plugins.bungee.listeners.Connection;
 import net.lunaria.api.plugins.bungee.listeners.PingEvent;
@@ -16,22 +19,31 @@ public class BungeeAPI extends Plugin {
 
     private static BungeeAPI instance;
 
+    private static @Getter ServerManager serverManager;
+
     public void onEnable(){
         instance = this;
         Config.setIsSpigot(false);
         ConfigGen.init();
         MongoConnector.init();
-        RabbitConnector.init();
         RedisConnector.init();
 
         initListeners();
         Maintenance.init();
 
+        serverManager = new ServerManager();
+        serverManager.init();
+
+        for (Environment environment : Environment.values()) {
+            new ServerQueue(environment);
+        }
+        ServerQueue prodQueue = ServerQueue.fromEnvironment(Environment.PROD);
+        prodQueue.queueAllTemplates();
+        prodQueue.startQueue(serverManager);
     }
 
     public void onDisable(){
         RedisConnector.disconnect();
-        RabbitConnector.disconnect();
         MongoConnector.disconnect();
     }
 

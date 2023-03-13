@@ -2,9 +2,7 @@ package net.lunaria.api.core.connectors;
 
 public enum ConnectorEnum {
     MONGODB("MongoDB"),
-    REDIS("Redis"),
-    RABBITMQ("RabbitMQ");
-
+    REDIS("Redis");
     private String name;
 
     ConnectorEnum(String name) {

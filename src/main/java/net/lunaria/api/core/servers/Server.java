@@ -1,5 +1,8 @@
 package net.lunaria.api.core.servers;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +13,7 @@ import java.util.Properties;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Getter @Setter
 public class Server {
     protected static Map<String, Server> serverNameMap = new ConcurrentHashMap<>();
 
@@ -17,19 +21,17 @@ public class Server {
     private String name;
     private String templateName;
     private int port;
-    //private ServerType serverType;
-    //private Environment environment;
+    private Environment environment;
 
     private boolean running = false;
     private File serverDirectory;
 
-    //public Server(String name, String templateName, int port, ServerType serverType, Environment environment) {
-    //    this.name = name;
-    //    this.templateName = templateName;
-    //    this.port = port;
-    //    //this.serverType = serverType;
-    //    //this.environment = environment;
-    //}
+    public Server(String name, String templateName, int port, Environment environment) {
+        this.name = name;
+        this.templateName = templateName;
+        this.port = port;
+        this.environment = environment;
+    }
 
     public void storeProperties() {
         File propertiesFile = new File(serverDirectory, "server.properties");
@@ -43,13 +45,12 @@ public class Server {
 
                 properties.put("online-mode", "false");
                 properties.put("online_mode", "false");
-                //properties.put("max-players", String.valueOf(serverType.getMaxPlayer()));
+                properties.put("max-players", String.valueOf(environment.getPlayers()));
                 properties.put("server-port", String.valueOf(port));
                 properties.put("server-ip", "127.0.0.1");
-                properties.put("motd", "SM");
+                properties.put("motd", "LUNARIA SERVER");
                 properties.put("allow-nether", "false");
-                //properties.put("SM_SERVERTYPE", serverType.name());
-                //properties.put("SM_ENVIRONMENT", environment.name());
+                properties.put("SM_ENVIRONMENT", environment.name());
                 properties.put("SM_TEMPLATE", templateName);
                 properties.put("SM_NAME", name);
                 properties.store(Files.newOutputStream(propertiesFile.toPath()), "Minecraft server properties");
@@ -65,8 +66,8 @@ public class Server {
             try {
                 startFile.createNewFile();
 
-                //String startFileContent = "nice -n 4 screen -dmS " + this.name + " java -Xmx" + serverType.getRam() + "G -jar -Dlog4j2.formatMsgNoLookups=true spigot.jar";
-                //Files.write(startFile.toPath(), startFileContent.getBytes());
+                String startFileContent = "nice -n 4 screen -dmS " + this.name + " java -Xmx" + environment.getRam() + "G -jar -Dlog4j2.formatMsgNoLookups=true spigot.jar";
+                Files.write(startFile.toPath(), startFileContent.getBytes());
                 startFile.setExecutable(true);
             } catch (IOException e) {
                 e.printStackTrace();

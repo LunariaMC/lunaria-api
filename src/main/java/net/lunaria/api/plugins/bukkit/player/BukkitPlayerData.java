@@ -1,20 +1,18 @@
-package net.lunaria.api.plugins.bukkit.data;
+package net.lunaria.api.plugins.bukkit.player;
 
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
 @lombok.Data
-public class Data {
-
+public class BukkitPlayerData {
     private Player player;
     private String name;
     private UUID uuid;
-    private Float lunes;
-    private Float planetes;
+    private float lunes;
+    private float planetes;
     private int powerMOD;
     private int powerVIP;
     private int level;
-    private Float xp;
-
+    private float xp;
 }
