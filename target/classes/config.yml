@@ -4,12 +4,6 @@ MongoDB:
   database: database
   port: 27017
   password: passhere
-RabbitMQ:
-  address: 127.0.0.1
-  virtualhost: /
-  username: guest
-  port: 5672
-  password: guest
 Redis:
   address: 127.0.0.1
   port: 6379

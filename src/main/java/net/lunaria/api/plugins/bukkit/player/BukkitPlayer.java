@@ -1,42 +1,32 @@
 package net.lunaria.api.plugins.bukkit.player;
 
 import com.google.gson.Gson;
+import lombok.Getter;
+import lombok.Setter;
+import net.lunaria.api.core.account.Account;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
-public class BukkitPlayer {
+public class BukkitPlayer extends Account {
+    private static Map<UUID, BukkitPlayer> playerMap = new ConcurrentHashMap<>();
 
-    public static HashMap<UUID, BukkitPlayerData> data = new HashMap<>();
+    private @Getter @Setter Player player;
 
-    //Avec un player
-    public static BukkitPlayerData getData(Player player){
-        return data.get(player.getUniqueId());
+    public void cache(UUID uuid) {
+        playerMap.put(uuid, this);
+    }
+    public void uncache() {
+        playerMap.remove(this.getUuid());
     }
 
-    public static BukkitPlayerData remove(Player player){
-        return data.remove(player.getUniqueId());
+    public static BukkitPlayer fromPlayer(Player player) {
+        return playerMap.get(player.getUniqueId());
     }
-
-    //Avec un uuid
-    public static BukkitPlayerData getData(UUID uuid){
-        return data.get(uuid);
+    public static BukkitPlayer fromUuid(UUID uuid) {
+        return playerMap.get(uuid);
     }
-
-    public static BukkitPlayerData remove(UUID uuid){
-        return data.remove(uuid);
-    }
-
-    //set
-    public static BukkitPlayerData setData(UUID uuid, String json) {
-        data.put(uuid, fromJson(json));
-        return data.get(uuid);
-    }
-
-    public static BukkitPlayerData fromJson(String json) {
-        return new Gson().fromJson(json, BukkitPlayerData.class);
-    }
-
-
 }

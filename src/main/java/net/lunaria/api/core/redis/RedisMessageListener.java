@@ -1,5 +1,6 @@
 package net.lunaria.api.core.redis;
 
+import lombok.Getter;
 import net.lunaria.api.core.connectors.RedisConnector;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
@@ -7,19 +8,11 @@ import redis.clients.jedis.JedisPubSub;
 import java.util.Objects;
 
 public class RedisMessageListener extends JedisPubSub {
-    private JedisPubSub jedisPubSub;
     private Jedis jedis;
-
-    private String channel;
+    private @Getter String channel;
 
     public RedisMessageListener(String channel) {
-        this.jedis = RedisConnector.getClient();
-        this.jedisPubSub = this;
-
         this.channel = channel;
-
-        this.jedis.subscribe(this, channel);
-        this.jedis.close();
     }
 
     @Override

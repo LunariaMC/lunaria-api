@@ -23,12 +23,18 @@ public class ServerManager {
     protected static final String RUNNING_DIR = "../servers/running/";
 
     public void init() {
-        for (Environment env : Environment.values()) {
-            File envPlugins = new File(PLUGINS_DIR + env.name());
-            if (!envPlugins.exists()) envPlugins.mkdir();
+        File serversFile = new File(SERVERS_DIR);
+        if (!serversFile.exists()) serversFile.mkdir();
 
-            File envTemplates = new File(TEMPLATES_DIR + env.name());
-            if (!envTemplates.exists()) envTemplates.mkdir();
+        File runningFile = new File(RUNNING_DIR);
+        if (!runningFile.exists()) runningFile.mkdir();
+
+        for (Environment env : Environment.values()) {
+            File envPlugins = new File(PLUGINS_DIR + env.name() + "/");
+            if (!envPlugins.exists()) envPlugins.mkdirs();
+
+            File envTemplates = new File(TEMPLATES_DIR + env.name() + "/");
+            if (!envTemplates.exists()) envTemplates.mkdirs();
         }
     }
 

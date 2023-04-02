@@ -4,6 +4,7 @@ import lombok.Getter;
 import net.lunaria.api.core.connectors.MongoConnector;
 import net.lunaria.api.core.connectors.RedisConnector;
 import net.lunaria.api.core.config.Config;
+import net.lunaria.api.core.redis.RedisListenersRegister;
 import net.lunaria.api.core.redis.RedisMessage;
 import net.lunaria.api.plugins.bukkit.commands.CommandManager;
 import net.lunaria.api.plugins.bukkit.menus.GuiManager;
@@ -27,12 +28,14 @@ public class BukkitAPI extends JavaPlugin {
         Config.setIsSpigot(true);
         saveDefaultConfig();
 
-        ListenerManager.initListeners(Config.packagePlugin, this);
+        ListenerManager.initListeners("net.lunaria.api.plugins.bukkit", this);
         CommandManager.initCommands(Config.packagePlugin, this);
         GuiManager.initGui(Config.packagePlugin, this);
 
         MongoConnector.init();
         RedisConnector.init();
+
+        RedisListenersRegister.registerListeners("net.lunaria.api.plugins.bukkit");
 
         try {
             File properties = new File("server.properties");
