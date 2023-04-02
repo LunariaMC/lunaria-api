@@ -8,8 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="LunaAPI" />
-        <module name="API" />
+        <module name="lunaria-lobby" />
+        <module name="lunaria-api" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="API" target="1.8" />
+      <module name="lunaria-lobby (1)" target="1.8" />
+      <module name="lunaria-lobby (2)" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

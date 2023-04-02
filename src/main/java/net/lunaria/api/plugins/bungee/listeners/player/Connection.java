@@ -20,7 +20,8 @@ public class Connection implements Listener {
         if(Maintenance.isActive()){
             if(!Maintenance.getUsers().contains(player.getName())){
                 String bar = "§6§m--------------------------------------------";
-                player.disconnect(new TextComponent(bar + "\n§event\n" + Prefixs.MAINTENANCE.getPrefix() + "Une erreur s'est produite !\n§event\n§fLe serveur est en §6maintenance§f !\n§event\n§c§l⚠ §fSi c'est une erreur,\n§fcontactez l'§4administration§f.\n§event\n" + bar));
+                player.disconnect(new TextComponent(bar + "\n§e\n" + Prefixs.MAINTENANCE.getPrefix() + "Une erreur s'est produite !\n§e\n§fLe serveur est en §6maintenance§f !\n§e\n§c§l⚠ §fSi c'est une erreur,\n§fcontactez l'§4administration§f.\n§e\n" + bar));
+                return;
             }
         }
 

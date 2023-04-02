@@ -1,4 +1,4 @@
 name: LunaAPI
-author: NeiZow
+author: Lunaria
 version: 0.0.1
 main: net.lunaria.api.plugins.bungee.BungeeAPI

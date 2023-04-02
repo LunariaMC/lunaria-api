@@ -29,8 +29,8 @@ public class BukkitAPI extends JavaPlugin {
         saveDefaultConfig();
 
         ListenerManager.initListeners("net.lunaria.api.plugins.bukkit", this);
-        CommandManager.initCommands(Config.packagePlugin, this);
-        GuiManager.initGui(Config.packagePlugin, this);
+        CommandManager.initCommands("net.lunaria.api.plugins.bukkit", this);
+        GuiManager.initGui("net.lunaria.api.plugins.bukkit", this);
 
         MongoConnector.init();
         RedisConnector.init();

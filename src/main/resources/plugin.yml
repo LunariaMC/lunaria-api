@@ -2,3 +2,5 @@ name: LunaAPI
 main: net.lunaria.api.plugins.bukkit.BukkitAPI
 version: 0.0.1
 author: Lunaria
+loadbefore:
+  - Lobby
