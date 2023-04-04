@@ -1,9 +1,11 @@
 package net.lunaria.api.plugins.bukkit.player;
 
+import com.google.common.base.Strings;
 import com.google.gson.Gson;
 import lombok.Getter;
 import lombok.Setter;
 import net.lunaria.api.core.account.Account;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -28,5 +30,17 @@ public class BukkitPlayer extends Account {
     }
     public static BukkitPlayer fromUuid(UUID uuid) {
         return playerMap.get(uuid);
+    }
+
+    public long getMaxExp() {
+        return (long) (Math.pow(getLevel(), 2) * 100);
+    }
+    public float getProgressExp() {
+        return (float) ((int) getExp() / getMaxExp());
+    }
+    public String getFormattedExp(int totalBars, char symbol, ChatColor[] completedColor, ChatColor[] notCompletedColor) {
+        float progress = getProgressExp();
+        int bars = (int) (totalBars*progress);
+        return "" + completedColor[0] + completedColor[1] + Strings.repeat("" + symbol, bars) + notCompletedColor[0] + notCompletedColor[1] +Strings.repeat("" + symbol, totalBars - bars);
     }
 }

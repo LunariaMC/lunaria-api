@@ -11,6 +11,5 @@ public class JoinEvent implements Listener {
         BukkitPlayer bukkitPlayer = BukkitPlayer.fromPlayer(event.getPlayer());
 
         bukkitPlayer.setPlayer(event.getPlayer());
-        event.getPlayer().sendMessage(bukkitPlayer.getRank().getMascPrefix() + "prefix");
     }
 }

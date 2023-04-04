@@ -1,12 +1,10 @@
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\account\Account.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\account\AccountManager.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\utils\scoreboard\Sideline.java
-C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\commands\CommandManager.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bungee\redis\ServerAliveListener.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\utils\scoreboard\Sidebar.java
-C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\menus\GuiManager.java
-C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\menus\GuiBuilder.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\connectors\MongoConnector.java
+C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\listeners\ListenerRegister.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bungee\config\ConfigGen.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\BukkitAPI.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\redis\RedisDBIndex.java
@@ -19,7 +17,6 @@ C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\ap
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\utils\Json.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\enums\Prefixs.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bungee\maintenance\Maintenance.java
-C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\listeners\ListenerManager.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\text\CenterText.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\connectors\RedisConnector.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bungee\listeners\player\Connection.java
@@ -39,6 +36,5 @@ C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\ap
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\listeners\player\PreLoginEvent.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\player\BukkitPlayerManager.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\enums\Rank.java
-C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\menus\GuiEventManager.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\utils\FileCopy.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\redis\RedisMessage.java

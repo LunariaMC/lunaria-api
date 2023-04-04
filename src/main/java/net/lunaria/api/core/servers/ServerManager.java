@@ -134,12 +134,12 @@ public class ServerManager {
         if (!serverFile.exists()) serverFile.mkdir();
 
         FileCopy.copy(
-                new File(TEMPLATES_DIR + server.getEnvironment().name() + "/" + templateName),
-                new File(RUNNING_DIR + server.getName())
-        );
-        FileCopy.copy(
                 new File(PLUGINS_DIR + server.getEnvironment().name() + "/"),
                 new File(RUNNING_DIR + server.getName() + "/plugins/")
+        );
+        FileCopy.copy(
+                new File(TEMPLATES_DIR + server.getEnvironment().name() + "/" + templateName),
+                new File(RUNNING_DIR + server.getName())
         );
     }
 }

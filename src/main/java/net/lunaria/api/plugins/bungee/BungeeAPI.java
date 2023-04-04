@@ -15,6 +15,7 @@ import net.lunaria.api.plugins.bungee.listeners.player.Connection;
 import net.lunaria.api.plugins.bungee.listeners.PingEvent;
 import net.lunaria.api.plugins.bungee.listeners.player.QuitEvent;
 import net.lunaria.api.plugins.bungee.maintenance.Maintenance;
+import net.lunaria.api.plugins.bungee.redis.ServerAliveListener;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
@@ -40,7 +41,7 @@ public class BungeeAPI extends Plugin {
         initListeners();
         Maintenance.init();
 
-        RedisListenersRegister.registerListeners("net.lunaria.api.plugins.bungee");
+        RedisListenersRegister.registerListeners(new ServerAliveListener());
 
         serverManager = new ServerManager();
         serverManager.init();
