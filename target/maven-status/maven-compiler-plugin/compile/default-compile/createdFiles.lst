@@ -34,6 +34,7 @@ net\lunaria\api\plugins\bungee\listeners\player\Connection.class
 net\lunaria\api\plugins\bukkit\utils\nametag\NametagUtil$NameTagInfo.class
 net\lunaria\api\core\servers\Environment.class
 net\lunaria\api\core\servers\Server.class
+net\lunaria\api\plugins\bukkit\game\Games.class
 net\lunaria\api\core\config\Config.class
 net\lunaria\api\plugins\bukkit\BukkitAPI.class
 net\lunaria\api\plugins\bukkit\utils\nametag\NametagUtil.class
@@ -44,7 +45,6 @@ net\lunaria\api\core\enums\Symbols.class
 net\lunaria\api\plugins\bukkit\utils\Reflection$DataType.class
 net\lunaria\api\core\utils\CopyFileVisitor.class
 net\lunaria\api\plugins\bukkit\utils\scoreboard\Sideline.class
-net\lunaria\api\plugins\bungee\maintenance\Maintenance.class
 net\lunaria\api\core\account\Subscription.class
 net\lunaria\api\core\utils\Json$3.class
 net\lunaria\api\plugins\bukkit\utils\scoreboard\Sidebar.class
@@ -59,6 +59,7 @@ net\lunaria\api\plugins\bukkit\utils\Reflection$PackageType.class
 net\lunaria\api\plugins\bukkit\utils\anvil\AnvilNMS.class
 net\lunaria\api\plugins\bukkit\utils\anvil\AnvilGUI$AnvilClickHandler.class
 net\lunaria\api\plugins\bungee\config\ConfigGen.class
+net\lunaria\api\plugins\bukkit\commands\LunaCommand.class
 net\lunaria\api\plugins\bukkit\utils\ItemBuilder.class
 net\lunaria\api\core\text\CenterText.class
 net\lunaria\api\plugins\bukkit\listeners\player\LunaMenuEvents.class

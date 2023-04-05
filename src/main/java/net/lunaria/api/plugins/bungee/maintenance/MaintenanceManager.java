@@ -1,31 +1,73 @@
 package net.lunaria.api.plugins.bungee.maintenance;
 
-import com.google.gson.Gson;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Filters;
 import lombok.Getter;
-import net.lunaria.api.core.connectors.MongoConnector;
-import org.bson.Document;
+import net.lunaria.api.core.connectors.RedisConnector;
+import net.lunaria.api.core.utils.Json;
+import redis.clients.jedis.Jedis;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MaintenanceManager {
-    private static Maintenance maintenance;
+    private static @Getter boolean active;
+    private static ArrayList<String> playerWhitelist = new ArrayList<>();
+    private static final String REDIS_KEY = "Maintenance.Infos";
 
-    public static Maintenance getMaintenance() {
-        if (maintenance != null) return maintenance;
+    public static void init() {
+        Jedis jedis = RedisConnector.getClient();
 
-        MongoCollection<Document> collection = MongoConnector.getConnection().getCollection("global_infos");
-        Document document = collection.find(Filters.eq("MONGO_TYPE", Filters.eq("MAINTENANCE_DATA"))).first();
+        String maintenance = jedis.get(REDIS_KEY);
 
-        if (document == null) {
-            maintenance = new Maintenance();
-            String json = new Gson().toJson(maintenance);
+        if (maintenance == null) {
+            playerWhitelist.add("Papipomme");
+            Json json = new Json();
+            json.set("active", true);
+            json.set("whitelist", playerWhitelist);
 
-            collection.insertOne(Document.parse(json));
+            active = true;
 
-            return new Gson().fromJson(json, Maintenance.class);
+            jedis.set(REDIS_KEY, json.toJson());
+            jedis.close();
+            return;
         }
+        jedis.close();
 
-        maintenance = new Gson().fromJson(document.toJson(), Maintenance.class);
-        return maintenance;
+        Json json = new Json();
+        json.fromString(maintenance);
+        active = json.getBoolean("active");
+        playerWhitelist = new ArrayList<>(json.getList(String[].class, "whitelist"));
+    }
+
+    public static void addPlayer(String playerName) {
+        MaintenanceManager.playerWhitelist.add(playerName);
+
+        Jedis jedis = RedisConnector.getClient();
+
+        Json json = new Json();
+        json.fromString(jedis.get(REDIS_KEY));
+        json.set("whitelist", playerWhitelist.toArray());
+
+        jedis.set(REDIS_KEY, json.toJson());
+    }
+
+    public static ArrayList<String> getPlayerWhitelist() {
+        return playerWhitelist;
+    }
+
+    public static void setActive(boolean active) {
+        MaintenanceManager.active = active;
+
+        Jedis jedis = RedisConnector.getClient();
+
+        Json json = new Json();
+        json.fromString(jedis.get(REDIS_KEY));
+        json.set("active", active);
+
+        jedis.set(REDIS_KEY, json.toJson());
+    }
+
+    public static boolean isActive() {
+        return active;
     }
 }

@@ -3,7 +3,9 @@ C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\ap
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\BukkitAPI.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\redis\RedisManager.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\listeners\player\QuitEvent.java
+C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\commands\LunaCommand.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\enums\Symbols.java
+C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\game\Games.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bungee\listeners\PingEvent.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\utils\Json.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\enums\Prefixs.java
@@ -33,7 +35,6 @@ C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\ap
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\utils\ItemBuilder.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\redis\RedisListenersRegister.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\config\Config.java
-C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bungee\maintenance\Maintenance.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\plugins\bukkit\menu\LunaMenu.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\servers\Server.java
 C:\Users\robin\Desktop\Travail\Lunaria\projects\API\src\main\java\net\lunaria\api\core\servers\Environment.java

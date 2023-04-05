@@ -7,6 +7,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -18,14 +19,14 @@ public abstract class LunaMenu implements InventoryHolder {
     private @Getter int size;
 
     private @Getter Inventory inventory;
-    public LunaMenu(Player player, String name, String plugin, int size) {
+    public LunaMenu(Player player, String name, int size) {
         this.name = name;
         this.size = size;
 
         this.inventory = Bukkit.createInventory(this, size, name);
     }
 
-    public LunaMenu(Player player, String name, String plugin, InventoryType inventoryType) {
+    public LunaMenu(Player player, String name, InventoryType inventoryType) {
         this.name = name;
         this.size = inventoryType.getDefaultSize();
 
@@ -37,9 +38,9 @@ public abstract class LunaMenu implements InventoryHolder {
     public abstract void onClose(Player player);
 
     public void open(Player player) {
-        player.openInventory(inventory);
         currentMenu.put(player, this);
         onOpen(player, this.inventory);
+        player.openInventory(inventory);
     }
     public static LunaMenu fromPlayer(Player player) {
         return currentMenu.get(player);

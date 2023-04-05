@@ -15,6 +15,7 @@ public class LunaMenuEvents implements Listener {
         LunaMenu lunaMenu = LunaMenu.fromPlayer(player);
 
         if (event.getInventory().getHolder() == lunaMenu) {
+            event.setCancelled(true);
             lunaMenu.onClick(event, player);
         }
     }
