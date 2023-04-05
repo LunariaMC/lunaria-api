@@ -29,6 +29,8 @@ public class BungeeAPI extends Plugin {
 
     private static @Getter ServerManager serverManager;
 
+    private static @Getter boolean running = false;
+
     public void onEnable(){
         instance = this;
         Config.setIsSpigot(false);
@@ -39,7 +41,6 @@ public class BungeeAPI extends Plugin {
         RedisManager.clearRedisCache(RedisDBIndex.ACCOUNT_CACHE.getIndex(), RedisDBIndex.SERVER_CACHE.getIndex());
 
         initListeners();
-        Maintenance.init();
 
         RedisListenersRegister.registerListeners(new ServerAliveListener());
 
@@ -56,6 +57,8 @@ public class BungeeAPI extends Plugin {
         ServerQueue prodQueue = ServerQueue.fromEnvironment(Environment.PROD);
         prodQueue.queueAllTemplates();
         prodQueue.startQueue(serverManager);
+
+        running = true;
     }
 
     public void onDisable(){

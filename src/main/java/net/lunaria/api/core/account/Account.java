@@ -17,7 +17,7 @@ public class Account {
 
     Rank rank = Rank.PLAYER;
     int powerMod = 0;
-    // SubscribedInfos
+    Subscription subscription = new Subscription(false);
 
     int level = 1;
     long exp = 0L;

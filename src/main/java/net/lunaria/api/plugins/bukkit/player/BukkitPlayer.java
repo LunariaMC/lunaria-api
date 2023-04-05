@@ -32,6 +32,15 @@ public class BukkitPlayer extends Account {
         return playerMap.get(uuid);
     }
 
+    public String getPrefix() {
+        if (getRank().isOverrideSubscriberPrefix()) return getRank().getPrefix();
+        return getSubscription().getPrefix();
+    }
+    public String getSuffix() {
+        if (getSubscription().isSubscribed()) return "§8 ❘ " + getSubscription().getSuffix();
+        return "";
+    }
+
     public long getMaxExp() {
         return (long) (Math.pow(getLevel(), 2) * 100);
     }

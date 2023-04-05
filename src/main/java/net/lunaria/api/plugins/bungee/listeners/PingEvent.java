@@ -3,6 +3,7 @@ package net.lunaria.api.plugins.bungee.listeners;
 import net.lunaria.api.core.enums.Symbols;
 import net.lunaria.api.core.text.CenterText;
 import net.lunaria.api.plugins.bungee.maintenance.Maintenance;
+import net.lunaria.api.plugins.bungee.maintenance.MaintenanceManager;
 import net.md_5.bungee.api.Favicon;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.ServerPing;
@@ -23,7 +24,7 @@ public class PingEvent implements Listener {
     public void serverPing(ProxyPingEvent e){
 
         ServerPing.PlayerInfo[] sample = null;
-        if(Maintenance.isActive()){
+        if(MaintenanceManager.getMaintenance().isActive()){
             List<String> lines = Arrays.asList("§8" + Symbols.ARROW.getSymbol() + " §cUne maintenance est en cours.");
             sample = new ServerPing.PlayerInfo[lines.size()];
             for (int i = 0; i < sample.length; i++) {

@@ -3,27 +3,27 @@ package net.lunaria.api.core.enums;
 import lombok.Getter;
 
 public enum Rank {
-    ADMIN("§4Admin §4", "§4Admin §4", false),
-    RESP("§cResponsable §c", "§cResponsable §c", false),
-    MODPLUS("§6Modérateur+ §6", "§6Modératrice+ §6", false),
-    MOD("§eModérateur §e", "§eModératrice §e", false),
-    HELPER("§aAssistant §a", "§aAssistant §a", false),
-    BUILDER("§2Constructeur §2", "§2Constructrice §2", false),
-    STAFF("§9Staff §9", "§9Staff §9", false),
+    ADMIN("§4Admin §4", true, 7),
+    RESP("§cResponsable §c", true, 6),
+    MODPLUS("§6Modérateur+ §6", true, 5),
+    MOD("§eModérateur §e", true, 4),
+    HELPER("§aAssistant §a", true, 3),
+    BUILDER("§2Constructeur §2", true, 2),
+    STAFF("§9Staff §9", true, 1),
 
-    FRIEND("§fAmi §f", "§fAmie §f", false),
-    MEDIA("§5Média §5", "§5Média §5", false),
+    FRIEND("§fAmi §f", true, 0),
+    MEDIA("§5Média §5", true, 0),
 
-    PLAYER("§7", "§7", true);
+    PLAYER("§7Joueur §7", false, 0);
 
 
-    private final @Getter String mascPrefix;
-    private final @Getter String femPrefix;
+    private final @Getter String prefix;
     private final @Getter boolean overrideSubscriberPrefix;
+    private final @Getter int powerMod;
 
-    Rank(String mascPrefix, String femPrefix, boolean overrideSubscriberPrefix) {
-        this.mascPrefix = mascPrefix;
-        this.femPrefix = femPrefix;
+    Rank(String prefix, boolean overrideSubscriberPrefix, int powerMod) {
+        this.prefix = prefix;
         this.overrideSubscriberPrefix = overrideSubscriberPrefix;
+        this.powerMod = powerMod;
     }
 }

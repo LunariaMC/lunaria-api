@@ -13,7 +13,7 @@ public class RedisConnector {
     private static String password;
     private static int port;
 
-    public static void init(){
+    public static void init() {
 
         Config configFile = new Config(Config.isSpigot(), ConnectorEnum.REDIS);
 
@@ -35,5 +35,15 @@ public class RedisConnector {
 
     public static Jedis getClient() {
         return client.getResource();
+    }
+
+    public static void reconnect() {
+        JedisPoolConfig config = new JedisPoolConfig();
+
+        config.setMaxTotal(-1);
+        config.setJmxEnabled(false);
+        client = new JedisPool(config, address, port, 0, password);
+
+        // return client.getResource();
     }
 }

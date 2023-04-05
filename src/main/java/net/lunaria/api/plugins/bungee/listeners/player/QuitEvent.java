@@ -12,6 +12,14 @@ public class QuitEvent implements Listener {
     public void onQuit(ServerDisconnectEvent event) {
         Account account = new AccountManager().getAccountFromRedis(event.getPlayer().getUniqueId());
 
+        Long playTime = Connection.playTimeMap.get(event.getPlayer().getUniqueId());
+        if (playTime != null) {
+            playTime = System.currentTimeMillis() - playTime;
+            Connection.playTimeMap.remove(event.getPlayer().getUniqueId());
+
+            account.setPlayTime(account.getPlayTime() + playTime);
+        }
+
         account.setLastSeen(System.currentTimeMillis());
 
         AccountManager.storeInMongo(account, event.getPlayer().getUniqueId());

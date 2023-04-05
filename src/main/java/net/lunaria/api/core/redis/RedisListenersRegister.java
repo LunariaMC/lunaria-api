@@ -9,9 +9,11 @@ public class RedisListenersRegister {
         Jedis jedis = RedisConnector.getClient();
 
         for (RedisMessageListener redisMessageListener : listeners) {
-            jedis.subscribe(redisMessageListener, redisMessageListener.getChannel());
+            new Thread(() -> jedis.subscribe(redisMessageListener, redisMessageListener.getChannel())).start();
         }
 
+        jedis.disconnect();
         jedis.close();
+        RedisConnector.reconnect();
     }
 }

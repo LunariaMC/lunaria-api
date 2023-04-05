@@ -8,6 +8,7 @@ import net.lunaria.api.core.redis.RedisListenersRegister;
 import net.lunaria.api.core.redis.RedisMessage;
 import net.lunaria.api.plugins.bukkit.listeners.ListenerRegister;
 import net.lunaria.api.plugins.bukkit.listeners.player.JoinEvent;
+import net.lunaria.api.plugins.bukkit.listeners.player.LunaMenuEvents;
 import net.lunaria.api.plugins.bukkit.listeners.player.PreLoginEvent;
 import net.lunaria.api.plugins.bukkit.listeners.player.QuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -30,7 +31,7 @@ public class BukkitAPI extends JavaPlugin {
         saveDefaultConfig();
 
         ListenerRegister.registerListeners(this,
-                new JoinEvent(), new PreLoginEvent(), new QuitEvent()
+                new JoinEvent(), new PreLoginEvent(), new QuitEvent(), new LunaMenuEvents()
         );
 
         MongoConnector.init();

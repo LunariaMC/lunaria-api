@@ -49,6 +49,7 @@ public class Server {
                 properties.put("server-port", String.valueOf(port));
                 properties.put("server-ip", "127.0.0.1");
                 properties.put("motd", "LUNARIA SERVER");
+                properties.put("announce-player-achievements", "false");
                 properties.put("allow-nether", "false");
                 properties.put("SM_ENVIRONMENT", environment.name());
                 properties.put("SM_TEMPLATE", templateName);

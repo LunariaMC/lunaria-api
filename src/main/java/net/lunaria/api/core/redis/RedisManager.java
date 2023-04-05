@@ -2,6 +2,7 @@ package net.lunaria.api.core.redis;
 
 import net.lunaria.api.core.connectors.RedisConnector;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.exceptions.JedisDataException;
 
 import javax.annotation.Nullable;
 
@@ -10,7 +11,7 @@ public class RedisManager {
         Jedis jedis = RedisConnector.getClient();
 
         if (dbIndex != null) jedis.select(dbIndex);
-        jedis.set(key,value);
+        jedis.set(key, value);
 
         jedis.close();
     }
