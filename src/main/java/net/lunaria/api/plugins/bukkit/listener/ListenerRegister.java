@@ -1,4 +1,4 @@
-package net.lunaria.api.plugins.bukkit.listeners;
+package net.lunaria.api.plugins.bukkit.listener;
 
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;

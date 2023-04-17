@@ -1,8 +1,8 @@
-package net.lunaria.api.plugins.bungee.listeners.player;
+package net.lunaria.api.plugins.bungee.listener.player;
 
 import net.lunaria.api.core.account.Account;
 import net.lunaria.api.core.account.AccountManager;
-import net.lunaria.api.core.enums.Prefixs;
+import net.lunaria.api.core.enums.Prefix;
 import net.lunaria.api.plugins.bungee.BungeeAPI;
 import net.lunaria.api.plugins.bungee.maintenance.MaintenanceManager;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -12,7 +12,6 @@ import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 import redis.clients.jedis.exceptions.JedisDataException;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -31,7 +30,7 @@ public class Connection implements Listener {
         if(MaintenanceManager.isActive()){
             if(!MaintenanceManager.getPlayerWhitelist().contains(player.getName())){
                 String bar = "§6§m--------------------------------------------";
-                player.disconnect(new TextComponent(bar + "\n§e\n" + Prefixs.MAINTENANCE.getPrefix() + "Une erreur s'est produite !\n§e\n§fLe serveur est en §6maintenance§f !\n§e\n§c§l⚠ §fSi c'est une erreur,\n§fcontactez l'§4administration§f.\n§e\n" + bar));
+                player.disconnect(new TextComponent(bar + "\n§e\n" + Prefix.MAINTENANCE.getPrefix() + "Une erreur s'est produite !\n§e\n§fLe serveur est en §6maintenance§f !\n§e\n§c§l⚠ §fSi c'est une erreur,\n§fcontactez l'§4administration§f.\n§e\n" + bar));
                 return;
             }
         }

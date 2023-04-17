@@ -1,8 +1,6 @@
 package net.lunaria.api.core.redis;
 
 import lombok.Getter;
-import net.lunaria.api.core.connectors.RedisConnector;
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
 
 import java.util.Objects;

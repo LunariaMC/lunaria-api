@@ -2,7 +2,7 @@ package net.lunaria.api.core.enums;
 
 import lombok.Getter;
 
-public enum Symbols {
+public enum Symbol {
     BAR("❘"),
     ARROW("»"),
     SQUARE("▪"),
@@ -11,7 +11,7 @@ public enum Symbols {
     CROSS("✖");
 
     private final @Getter String symbol;
-    Symbols(String symbol) {
+    Symbol(String symbol) {
         this.symbol = symbol;
     }
 }

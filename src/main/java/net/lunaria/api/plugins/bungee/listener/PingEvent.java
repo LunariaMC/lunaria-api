@@ -1,6 +1,6 @@
-package net.lunaria.api.plugins.bungee.listeners;
+package net.lunaria.api.plugins.bungee.listener;
 
-import net.lunaria.api.core.enums.Symbols;
+import net.lunaria.api.core.enums.Symbol;
 import net.lunaria.api.core.text.CenterText;
 import net.lunaria.api.plugins.bungee.maintenance.MaintenanceManager;
 import net.md_5.bungee.api.Favicon;
@@ -24,7 +24,7 @@ public class PingEvent implements Listener {
 
         ServerPing.PlayerInfo[] sample = null;
         if(MaintenanceManager.isActive()){
-            List<String> lines = Arrays.asList("§8" + Symbols.ARROW.getSymbol() + " §cUne maintenance est en cours.");
+            List<String> lines = Arrays.asList("§8" + Symbol.ARROW.getSymbol() + " §cUne maintenance est en cours.");
             sample = new ServerPing.PlayerInfo[lines.size()];
             for (int i = 0; i < sample.length; i++) {
                 sample[i] = new ServerPing.PlayerInfo(lines.get(i), "");
@@ -39,7 +39,7 @@ public class PingEvent implements Listener {
         serverPing.setVersion(new ServerPing.Protocol("§c1.8x - 1.13x", serverPing.getVersion().getProtocol()));
         serverPing.setDescriptionComponent(new TextComponent(
                 CenterText.centerText("§9§l»§3§l»§f§l» §b§lLunaria§f§oMC §8❘ §eDe retour en v2 §f§l«§3§l«§9§l«\n", 123) +
-                CenterText.centerText("§8" + Symbols.SQUARE.getSymbol() + " §fDécollage imminent §8(§e1.8-1.13§8) §8" + Symbols.SQUARE.getSymbol() , 123)
+                CenterText.centerText("§8" + Symbol.SQUARE.getSymbol() + " §fDécollage imminent §8(§e1.8-1.13§8) §8" + Symbol.SQUARE.getSymbol() , 123)
                 )
         );
 

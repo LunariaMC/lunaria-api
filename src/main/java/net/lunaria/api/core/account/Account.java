@@ -1,9 +1,6 @@
 package net.lunaria.api.core.account;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import net.lunaria.api.core.enums.Rank;
 
 import java.util.UUID;

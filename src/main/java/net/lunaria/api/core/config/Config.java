@@ -1,7 +1,7 @@
 package net.lunaria.api.core.config;
 
-import net.lunaria.api.core.connectors.ConnectorEnum;
-import net.lunaria.api.core.connectors.ConnectorConfigFieldsEnum;
+import net.lunaria.api.core.connector.ConnectorEnum;
+import net.lunaria.api.core.connector.ConnectorConfigFieldsEnum;
 import net.lunaria.api.plugins.bungee.config.ConfigGen;
 import net.lunaria.api.plugins.bukkit.BukkitAPI;
 import net.md_5.bungee.config.Configuration;

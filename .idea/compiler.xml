@@ -16,6 +16,15 @@
       <module name="API" target="1.8" />
       <module name="lunaria-lobby (1)" target="1.8" />
       <module name="lunaria-lobby (2)" target="1.8" />
+      <module name="titanium" target="1.8" />
+      <module name="titanium.main" target="1.8" />
+      <module name="titanium.test" target="1.8" />
+      <module name="titanium.titanium-api" target="1.8" />
+      <module name="titanium.titanium-api.main" target="1.8" />
+      <module name="titanium.titanium-api.test" target="1.8" />
+      <module name="titanium.titanium-server" target="1.8" />
+      <module name="titanium.titanium-server.main" target="1.8" />
+      <module name="titanium.titanium-server.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

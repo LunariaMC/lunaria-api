@@ -1,7 +1,5 @@
-package net.lunaria.api.plugins.bukkit.listeners.player;
+package net.lunaria.api.plugins.bukkit.listener.player;
 
-import net.lunaria.api.core.account.Account;
-import net.lunaria.api.core.account.AccountManager;
 import net.lunaria.api.plugins.bukkit.player.BukkitPlayer;
 import net.lunaria.api.plugins.bukkit.player.BukkitPlayerManager;
 import org.bukkit.event.EventHandler;

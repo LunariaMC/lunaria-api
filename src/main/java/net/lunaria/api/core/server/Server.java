@@ -1,4 +1,4 @@
-package net.lunaria.api.core.servers;
+package net.lunaria.api.core.server;
 
 import lombok.Getter;
 import lombok.Setter;

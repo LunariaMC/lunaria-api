@@ -41,9 +41,11 @@ public class BukkitPlayer extends Account {
         return "";
     }
 
+    @Deprecated
     public long getMaxExp() {
         return (long) (Math.pow(getLevel(), 2) * 100);
     }
+    @Deprecated
     public float getProgressExp() {
         return (float) ((int) getExp() / getMaxExp());
     }

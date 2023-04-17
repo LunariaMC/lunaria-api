@@ -1,4 +1,4 @@
-package net.lunaria.api.core.connectors;
+package net.lunaria.api.core.connector;
 
 import net.lunaria.api.core.config.Config;
 import com.mongodb.MongoClient;

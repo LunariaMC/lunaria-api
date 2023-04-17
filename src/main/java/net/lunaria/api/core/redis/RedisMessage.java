@@ -1,6 +1,6 @@
 package net.lunaria.api.core.redis;
 
-import net.lunaria.api.core.connectors.RedisConnector;
+import net.lunaria.api.core.connector.RedisConnector;
 import redis.clients.jedis.Jedis;
 
 public class RedisMessage {

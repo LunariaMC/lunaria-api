@@ -3,7 +3,7 @@ package net.lunaria.api.core.account;
 import com.google.gson.Gson;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
-import net.lunaria.api.core.connectors.MongoConnector;
+import net.lunaria.api.core.connector.MongoConnector;
 import net.lunaria.api.core.redis.RedisDBIndex;
 import net.lunaria.api.core.redis.RedisManager;
 import org.bson.Document;

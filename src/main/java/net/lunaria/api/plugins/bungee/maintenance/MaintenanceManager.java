@@ -1,13 +1,11 @@
 package net.lunaria.api.plugins.bungee.maintenance;
 
 import lombok.Getter;
-import net.lunaria.api.core.connectors.RedisConnector;
+import net.lunaria.api.core.connector.RedisConnector;
 import net.lunaria.api.core.utils.Json;
 import redis.clients.jedis.Jedis;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 public class MaintenanceManager {
     private static @Getter boolean active;

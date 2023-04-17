@@ -1,7 +1,7 @@
 package net.lunaria.api.plugins.bungee.redis;
 
 import net.lunaria.api.core.redis.RedisMessageListener;
-import net.lunaria.api.core.servers.Server;
+import net.lunaria.api.core.server.Server;
 import net.md_5.bungee.api.ChatColor;
 
 public class ServerAliveListener extends RedisMessageListener {

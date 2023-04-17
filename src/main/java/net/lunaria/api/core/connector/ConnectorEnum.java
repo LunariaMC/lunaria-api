@@ -1,4 +1,4 @@
-package net.lunaria.api.core.connectors;
+package net.lunaria.api.core.connector;
 
 public enum ConnectorEnum {
     MONGODB("MongoDB"),

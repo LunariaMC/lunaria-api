@@ -1,8 +1,7 @@
-package net.lunaria.api.plugins.bungee.listeners.player;
+package net.lunaria.api.plugins.bungee.listener.player;
 
 import net.lunaria.api.core.account.Account;
 import net.lunaria.api.core.account.AccountManager;
-import net.md_5.bungee.api.event.PlayerDisconnectEvent;
 import net.md_5.bungee.api.event.ServerDisconnectEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;

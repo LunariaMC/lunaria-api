@@ -1,4 +1,4 @@
-package net.lunaria.api.core.servers;
+package net.lunaria.api.core.server;
 
 import io.netty.util.internal.ConcurrentSet;
 import lombok.Getter;
