@@ -2,6 +2,8 @@ package net.lunaria.api.core.enums;
 
 import lombok.Getter;
 
+import java.util.Arrays;
+
 public enum Rank {
     ADMIN("§4Admin §4", true, 7),
     RESP("§cResponsable §c", true, 6),
@@ -26,4 +28,14 @@ public enum Rank {
         this.overrideSubscriberPrefix = overrideSubscriberPrefix;
         this.powerMod = powerMod;
     }
+
+    public static Rank fromPower(int requiredPower){
+        for (Rank value : Rank.values()) {
+            if(value.getPowerMod() == requiredPower){
+                return value;
+            }
+        }
+        return null;
+    }
+
 }

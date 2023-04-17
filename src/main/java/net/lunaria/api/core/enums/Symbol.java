@@ -8,7 +8,8 @@ public enum Symbol {
     SQUARE("▪"),
     WARN("⚠"),
     CHECK("✔"),
-    CROSS("✖");
+    CROSS("✖"),
+    LINE("§m--------------------------------------------");
 
     private final @Getter String symbol;
     Symbol(String symbol) {
