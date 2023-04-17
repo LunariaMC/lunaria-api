@@ -25,6 +25,7 @@ public class LunaCommand implements CommandExecutor, TabCompleter {
     protected boolean forSubscribed;
     protected boolean staffByPass;
     protected BukkitPlayer bukkitPlayer;
+    protected Player player;
 
     public LunaCommand(String name, int requiredPower, boolean forSubscribed, boolean staffByPass, String... aliases) {
         this.name = name;
@@ -40,7 +41,7 @@ public class LunaCommand implements CommandExecutor, TabCompleter {
         if (commandSender.isAssignableFrom(sender.getClass())) {
 
             if(sender instanceof Player){
-                Player player = (Player) sender;
+                player = (Player) sender;
                 bukkitPlayer = BukkitPlayer.fromPlayer(player);
                 if(bukkitPlayer.getPowerMod() < requiredPower){
                     errorMessage(player, forSubscribed, requiredPower);
