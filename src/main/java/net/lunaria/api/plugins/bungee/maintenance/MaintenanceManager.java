@@ -19,6 +19,7 @@ public class MaintenanceManager {
 
         if (maintenance == null) {
             playerWhitelist.add("Papipomme");
+            playerWhitelist.add("NeiZow");
             Json json = new Json();
             json.set("active", true);
             json.set("whitelist", playerWhitelist);
