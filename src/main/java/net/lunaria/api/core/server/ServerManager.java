@@ -3,6 +3,8 @@ package net.lunaria.api.core.server;
 import io.netty.util.internal.ConcurrentSet;
 import lombok.Getter;
 import lombok.Setter;
+import net.lunaria.api.core.redis.RedisDBIndex;
+import net.lunaria.api.core.redis.RedisManager;
 import net.lunaria.api.core.utils.FileCopy;
 import net.md_5.bungee.api.ProxyServer;
 
@@ -68,6 +70,7 @@ public class ServerManager {
 
 
     public void deleteServer(String serverName) {
+        RedisManager.unset("Server." + serverName, RedisDBIndex.SERVER_CACHE.getIndex());
         Server server = Server.fromName(serverName);
         if (server == null) return;
 
@@ -81,6 +84,7 @@ public class ServerManager {
     }
 
     public void deleteUnknownServer(String serverName) {
+        RedisManager.unset("Server." + serverName, RedisDBIndex.SERVER_CACHE.getIndex());
         ProcessBuilder processBuilder = new ProcessBuilder("screen", "-S", serverName, "-X", "stuff", "stop\\r");
         try {
             Process process = processBuilder.start();

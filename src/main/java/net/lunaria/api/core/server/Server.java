@@ -1,7 +1,10 @@
 package net.lunaria.api.core.server;
 
+import com.google.gson.Gson;
 import lombok.Getter;
 import lombok.Setter;
+import net.lunaria.api.core.redis.RedisDBIndex;
+import net.lunaria.api.core.redis.RedisManager;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -26,11 +29,15 @@ public class Server {
     private boolean running = false;
     private File serverDirectory;
 
+    private long createdMillis;
+
     public Server(String name, String templateName, int port, Environment environment) {
         this.name = name;
         this.templateName = templateName;
         this.port = port;
         this.environment = environment;
+
+        this.createdMillis = System.currentTimeMillis();
     }
 
     public void storeProperties() {
@@ -92,10 +99,11 @@ public class Server {
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
             }
+
+            RedisManager.set("Server." + name, new Gson().toJson(this), RedisDBIndex.SERVER_CACHE.getIndex());
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void stop() {
@@ -117,5 +125,9 @@ public class Server {
 
     public static Server fromName(String name) {
         return serverNameMap.get(name);
+    }
+    public static Server fromRedis(String serverName) {
+        String json = RedisManager.get("Server." + serverName, RedisDBIndex.SERVER_CACHE.getIndex());
+        return new Gson().fromJson(json, Server.class);
     }
 }

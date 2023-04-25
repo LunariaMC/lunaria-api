@@ -5,11 +5,14 @@ import net.lunaria.api.core.connector.MongoConnector;
 import net.lunaria.api.core.connector.RedisConnector;
 import net.lunaria.api.core.config.Config;
 import net.lunaria.api.core.redis.RedisMessage;
+import net.lunaria.api.plugins.bukkit.command.CommandRegister;
 import net.lunaria.api.plugins.bukkit.listener.ListenerRegister;
 import net.lunaria.api.plugins.bukkit.listener.player.JoinEvent;
 import net.lunaria.api.plugins.bukkit.listener.player.LunaMenuEvents;
 import net.lunaria.api.plugins.bukkit.listener.player.PreLoginEvent;
 import net.lunaria.api.plugins.bukkit.listener.player.QuitEvent;
+import net.lunaria.api.plugins.bukkit.maintenance.MaintenanceCommand;
+import net.lunaria.api.plugins.bungee.maintenance.MaintenanceManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -32,6 +35,7 @@ public class BukkitAPI extends JavaPlugin {
         ListenerRegister.registerListeners(this,
                 new JoinEvent(), new PreLoginEvent(), new QuitEvent(), new LunaMenuEvents()
         );
+        CommandRegister.registerCommands(this, new MaintenanceCommand());
 
         MongoConnector.init();
         RedisConnector.init();
@@ -47,6 +51,8 @@ public class BukkitAPI extends JavaPlugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        MaintenanceManager.init();
 
         new RedisMessage("Bukkit:ServerManager:aliveSignal").publish(serverName);
     }

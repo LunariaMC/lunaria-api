@@ -6,6 +6,7 @@ import net.lunaria.api.core.enums.Rank;
 @Data
 public class Subscription {
     boolean subscribed;
+    long expireDateMillis = 0L;
 
     String prefix = Rank.PLAYER.getPrefix();
     String suffix = "§e✯";

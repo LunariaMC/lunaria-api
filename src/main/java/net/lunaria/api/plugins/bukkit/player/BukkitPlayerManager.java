@@ -55,4 +55,10 @@ public class BukkitPlayerManager extends AccountManager {
         bukkitPlayer = new BukkitPlayerManager().getAccountFromMongo(player.getUniqueId());
         return bukkitPlayer;
     }
+
+
+    public static void saveAccount(BukkitPlayer bukkitPlayer) {
+        storeInRedis(bukkitPlayer, bukkitPlayer.getUuid());
+        storeInMongo(bukkitPlayer, bukkitPlayer.getUuid());
+    }
 }
