@@ -27,6 +27,17 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
+    - name: Using BuildTools
+      uses: SpraxDev/Action-SpigotMC@v4
+      with:
+        versions: 1.8.8 # Optional
+        generateSrc: false # Optional
+        generateDoc: false # Optional
+        disableJavaCheck: false # Optional
+        remapped: false # Optional
+        forceRun: false # Optional
+        threads: -1 # Optional
+        buildToolProvider: SpigotMC # Optional
     - name: Build with Maven
       run: mvn clean install
 
