@@ -14,7 +14,6 @@ import net.lunaria.api.plugins.bungee.config.ConfigGen;
 import net.lunaria.api.plugins.bungee.listener.player.Connection;
 import net.lunaria.api.plugins.bungee.listener.PingEvent;
 import net.lunaria.api.plugins.bungee.listener.player.QuitEvent;
-import net.lunaria.api.plugins.bungee.maintenance.MaintenanceManager;
 import net.lunaria.api.plugins.bungee.redis.ServerAliveListener;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Plugin;
@@ -57,8 +56,6 @@ public class BungeeAPI extends Plugin {
         ServerQueue prodQueue = ServerQueue.fromEnvironment(Environment.PROD);
         prodQueue.queueAllTemplates();
         prodQueue.startQueue(serverManager);
-
-        MaintenanceManager.init();
 
         running = true;
     }

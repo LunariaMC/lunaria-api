@@ -5,6 +5,9 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface SubCommand {
+
+    // Accepts several arguments such as 'add %player% %string%'.
     String arg() default "help";
-    int position() default 0;
+
+    String description() default "Aucune information fournie";
 }

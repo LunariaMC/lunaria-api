@@ -3,8 +3,8 @@ package net.lunaria.api.plugins.bungee.listener.player;
 import net.lunaria.api.core.account.Account;
 import net.lunaria.api.core.account.AccountManager;
 import net.lunaria.api.core.enums.Prefix;
+import net.lunaria.api.core.maintenance.MaintenanceManager;
 import net.lunaria.api.plugins.bungee.BungeeAPI;
-import net.lunaria.api.plugins.bungee.maintenance.MaintenanceManager;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.PendingConnection;
 import net.md_5.bungee.api.event.LoginEvent;
@@ -27,8 +27,8 @@ public class Connection implements Listener {
             return;
         }
 
-        if(MaintenanceManager.isActive()){
-            if(!MaintenanceManager.getPlayerWhitelist().contains(player.getName())){
+        if(MaintenanceManager.getMaintenance().isActive()){
+            if(!MaintenanceManager.getMaintenance().getNameWhitelist().contains(player.getName())){
                 String bar = "§6§m--------------------------------------------";
                 player.disconnect(new TextComponent(bar + "\n§e\n" + Prefix.MAINTENANCE.getPrefix() + "Une erreur s'est produite !\n§e\n§fLe serveur est en §6maintenance§f !\n§e\n§c§l⚠ §fSi c'est une erreur,\n§fcontactez l'§4administration§f.\n§e\n" + bar));
                 return;

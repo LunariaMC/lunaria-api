@@ -12,7 +12,6 @@ import net.lunaria.api.plugins.bukkit.listener.player.LunaMenuEvents;
 import net.lunaria.api.plugins.bukkit.listener.player.PreLoginEvent;
 import net.lunaria.api.plugins.bukkit.listener.player.QuitEvent;
 import net.lunaria.api.plugins.bukkit.maintenance.MaintenanceCommand;
-import net.lunaria.api.plugins.bungee.maintenance.MaintenanceManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -51,8 +50,6 @@ public class BukkitAPI extends JavaPlugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        MaintenanceManager.init();
 
         new RedisMessage("Bukkit:ServerManager:aliveSignal").publish(serverName);
     }

@@ -44,4 +44,12 @@ public class RedisManager {
 
         jedis.close();
     }
+
+    public static void publish(String channel, String message) {
+        Jedis jedis = RedisConnector.getClient();
+
+        jedis.publish(channel, message);
+
+        jedis.close();
+    }
 }

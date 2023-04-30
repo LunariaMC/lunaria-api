@@ -61,6 +61,7 @@ public class Server {
                 properties.put("SM_ENVIRONMENT", environment.name());
                 properties.put("SM_TEMPLATE", templateName);
                 properties.put("SM_NAME", name);
+                properties.put("server-name", name);
                 properties.store(Files.newOutputStream(propertiesFile.toPath()), "Minecraft server properties");
             } catch (IOException e) {
                 e.printStackTrace();
