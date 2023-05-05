@@ -41,7 +41,7 @@ jobs:
         prerelease: false
         release_name: ${{ github.ref }}
         tag_name: ${{ github.ref }}
-        body_path: CHANGELOG.md
+        body: "lunaria build"
       env:
         GITHUB_TOKEN: ${{ github.token }}
     - name: Upload Java File
