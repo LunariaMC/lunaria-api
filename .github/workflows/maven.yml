@@ -27,10 +27,6 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
-    - uses: Papipomme/Action-SpigotMC@v4
-      with:
-        versions: 1.8.8 # Optional
-        remapped: true # Optional
 
     - name: Build with Maven
       run: mvn clean install
