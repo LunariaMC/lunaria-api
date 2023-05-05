@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6628b37e-8c54-490f-b601-37aa5180177b" name="Changes" comment="fix pom.xml" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="module" />
+    </option>
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/../../../Titanium">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="titanium" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <branch-grouping />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2MvDJeSMgPakLuzxnD5lipfeZNM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/robin/Desktop/Travail/Lunaria/projects/Spigot&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.16015625&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;db974238714ca8de634a7ce1d083a14f&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="net.lunaria.lobby.scoreboard" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="net.lunaria.api.plugins.bukkit.utils" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean" />
+      <command value="mvn clean install" />
+      <command value="mvn clean install -DskipTests" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="API" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="API" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6628b37e-8c54-490f-b601-37aa5180177b" name="Changes" comment="" />
+      <created>1678639091330</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678639091330</updated>
+      <workItem from="1678639092434" duration="4063000" />
+      <workItem from="1678650101784" duration="130000" />
+      <workItem from="1678721090328" duration="4267000" />
+      <workItem from="1678733391119" duration="821000" />
+      <workItem from="1680285584636" duration="2146000" />
+      <workItem from="1680370899472" duration="3690000" />
+      <workItem from="1680377208959" duration="3409000" />
+      <workItem from="1680427148129" duration="6369000" />
+      <workItem from="1680444527933" duration="2487000" />
+      <workItem from="1680447028920" duration="477000" />
+      <workItem from="1680535881466" duration="632000" />
+      <workItem from="1680536524267" duration="2459000" />
+      <workItem from="1680626061402" duration="8566000" />
+      <workItem from="1680685603572" duration="15060000" />
+      <workItem from="1680725625631" duration="42000" />
+      <workItem from="1680885426635" duration="1554000" />
+      <workItem from="1680892598739" duration="7000" />
+      <workItem from="1680892763909" duration="10000" />
+      <workItem from="1680892975729" duration="287000" />
+      <workItem from="1680893291105" duration="9000" />
+      <workItem from="1680897233011" duration="1239000" />
+      <workItem from="1681246227614" duration="10000" />
+      <workItem from="1681637448083" duration="832000" />
+      <workItem from="1681746975050" duration="928000" />
+      <workItem from="1681834918835" duration="811000" />
+      <workItem from="1682332167457" duration="1171000" />
+      <workItem from="1682442780396" duration="9326000" />
+      <workItem from="1682457598579" duration="3742000" />
+      <workItem from="1682495046915" duration="4079000" />
+      <workItem from="1682503496727" duration="18784000" />
+      <workItem from="1682586263323" duration="3676000" />
+      <workItem from="1682690773366" duration="817000" />
+      <workItem from="1682709692681" duration="600000" />
+      <workItem from="1682873985638" duration="164000" />
+      <workItem from="1682874904786" duration="2760000" />
+      <workItem from="1682964185948" duration="31000" />
+      <workItem from="1682964233276" duration="7000" />
+    </task>
+    <task id="LOCAL-00001" summary="feat: Refactor arch, starting ServerManager">
+      <created>1678650197235</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678650197235</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: ServerManager (UNTESTED)">
+      <created>1678725238223</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678725238223</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: PlayerManager">
+      <created>1680443143832</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680443143832</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: Remove Reflections (useless and heavyweight) &amp; handle player levels">
+      <created>1680631366734</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680631366734</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat&amp;fix: Redis fix and a lot of stuff">
+      <created>1680713604210</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680713604210</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat&amp;fix: Lot of fixs &amp; MainMenu !!!">
+      <created>1680725654889</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680725654889</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix: packages refactor">
+      <created>1681747027841</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681747027841</updated>
+    </task>
+    <task id="LOCAL-00008" summary="hehe la flm de mettre un message">
+      <created>1682461330071</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682461330071</updated>
+    </task>
+    <task id="LOCAL-00009" summary="test">
+      <created>1682875095900</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682875095901</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix pom.xml">
+      <created>1682875328305</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682875328305</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix pom.xml">
+      <created>1682877433386</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682877433386</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: Refactor arch, starting ServerManager" />
+    <MESSAGE value="feat: ServerManager (UNTESTED)" />
+    <MESSAGE value="feat: PlayerManager" />
+    <MESSAGE value="feat: Remove Reflections (useless and heavyweight) &amp; handle player levels" />
+    <MESSAGE value="feat&amp;fix: Redis fix and a lot of stuff" />
+    <MESSAGE value="feat&amp;fix: Lot of fixs &amp; MainMenu !!!" />
+    <MESSAGE value="fix: packages refactor" />
+    <MESSAGE value="hehe la flm de mettre un message" />
+    <MESSAGE value="test" />
+    <MESSAGE value="fix pom.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix pom.xml" />
+  </component>
+</project>

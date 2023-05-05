@@ -5,7 +5,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import net.lunaria.api.core.account.AccountManager;
 import net.lunaria.api.core.connector.MongoConnector;
-import net.lunaria.api.core.redis.RedisDBIndex;
 import net.lunaria.api.core.redis.RedisManager;
 import org.bson.Document;
 import org.bukkit.entity.Player;
@@ -13,6 +12,8 @@ import org.bukkit.entity.Player;
 import java.util.UUID;
 
 public class BukkitPlayerManager extends AccountManager {
+    private static final int REDIS_INDEX = 1;
+
     @Override
     public BukkitPlayer getAccountFromMongo(UUID uuid) {
         MongoCollection<Document> collection = MongoConnector.getConnection().getCollection("players");
@@ -25,7 +26,7 @@ public class BukkitPlayerManager extends AccountManager {
 
     @Override
     public BukkitPlayer getAccountFromRedis(UUID uuid) {
-        String json = RedisManager.get("Player." + uuid, RedisDBIndex.ACCOUNT_CACHE.getIndex());
+        String json = RedisManager.getInstance().getKey("Player." + uuid, REDIS_INDEX);
 
         return new Gson().fromJson(json, BukkitPlayer.class);
     }

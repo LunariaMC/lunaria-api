@@ -1,10 +1,11 @@
 package net.lunaria.api.plugins.bukkit;
 
 import lombok.Getter;
+import net.lunaria.api.core.common.CommonManager;
 import net.lunaria.api.core.connector.MongoConnector;
 import net.lunaria.api.core.connector.RedisConnector;
 import net.lunaria.api.core.config.Config;
-import net.lunaria.api.core.redis.RedisMessage;
+import net.lunaria.api.core.redis.RedisManager;
 import net.lunaria.api.plugins.bukkit.command.CommandRegister;
 import net.lunaria.api.plugins.bukkit.listener.ListenerRegister;
 import net.lunaria.api.plugins.bukkit.listener.player.JoinEvent;
@@ -25,6 +26,8 @@ public class BukkitAPI extends JavaPlugin {
 
     private static @Getter String serverName;
 
+    private static @Getter RedisManager redisManager;
+
     @Override
     public void onEnable() {
         instance = this;
@@ -39,6 +42,10 @@ public class BukkitAPI extends JavaPlugin {
         MongoConnector.init();
         RedisConnector.init();
 
+        redisManager = new RedisManager();
+
+        // Initialise les messages communs entre spigot et bungee
+        CommonManager.init();
         //RedisListenersRegister.registerListeners();
 
         try {
@@ -51,11 +58,17 @@ public class BukkitAPI extends JavaPlugin {
             e.printStackTrace();
         }
 
-        new RedisMessage("Bukkit:ServerManager:aliveSignal").publish(serverName);
+        redisManager.publishMessage("B_ServerManager:serverAlive", serverName);
     }
 
     @Override
     public void onDisable() {
+        try {
+            RedisManager.getInstance().close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         MongoConnector.disconnect();
         RedisConnector.disconnect();
     }

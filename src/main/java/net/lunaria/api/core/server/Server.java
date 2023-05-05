@@ -3,7 +3,6 @@ package net.lunaria.api.core.server;
 import com.google.gson.Gson;
 import lombok.Getter;
 import lombok.Setter;
-import net.lunaria.api.core.redis.RedisDBIndex;
 import net.lunaria.api.core.redis.RedisManager;
 
 import java.io.BufferedReader;
@@ -18,6 +17,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Getter @Setter
 public class Server {
+    private static final int REDIS_INDEX = 2;
+
     protected static Map<String, Server> serverNameMap = new ConcurrentHashMap<>();
 
     private UUID uuid;
@@ -101,7 +102,7 @@ public class Server {
                 System.out.println(line);
             }
 
-            RedisManager.set("Server." + name, new Gson().toJson(this), RedisDBIndex.SERVER_CACHE.getIndex());
+            RedisManager.getInstance().setKey("Server." + name, new Gson().toJson(this), REDIS_INDEX);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -123,12 +124,15 @@ public class Server {
         }
     }
 
+    public void saveToRedis() {
+        RedisManager.getInstance().setKey("Server." + name, new Gson().toJson(this), REDIS_INDEX);
+    }
 
     public static Server fromName(String name) {
         return serverNameMap.get(name);
     }
     public static Server fromRedis(String serverName) {
-        String json = RedisManager.get("Server." + serverName, RedisDBIndex.SERVER_CACHE.getIndex());
+        String json = RedisManager.getInstance().getKey("Server." + serverName, REDIS_INDEX);
         return new Gson().fromJson(json, Server.class);
     }
 }

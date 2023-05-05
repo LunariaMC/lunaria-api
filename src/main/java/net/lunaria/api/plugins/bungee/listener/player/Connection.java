@@ -48,7 +48,8 @@ public class Connection implements Listener {
             AccountManager.storeInMongo(account, uuid);
         }
 
-        try {AccountManager.storeInRedis(account, uuid);}
+        try {
+            AccountManager.storeInRedis(account, uuid);}
         catch (JedisDataException e) {
             e.printStackTrace();
             player.disconnect(new TextComponent("§cVotre compte a été mis à jour, merci de vous reconnecter."));

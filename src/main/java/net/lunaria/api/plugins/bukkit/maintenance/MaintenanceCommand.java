@@ -4,7 +4,7 @@ import net.lunaria.api.core.enums.Prefix;
 import net.lunaria.api.core.enums.Rank;
 import net.lunaria.api.core.maintenance.MaintenanceManager;
 import net.lunaria.api.plugins.bukkit.command.LunaCommand;
-import net.lunaria.api.plugins.bukkit.command.SubCommand;
+import net.lunaria.api.plugins.bukkit.command.subcommand.SubCommand;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -30,22 +30,34 @@ public class MaintenanceCommand extends LunaCommand {
         player.sendMessage(" ");
     }
 
-    @SubCommand(arg = "add %player%", description = "Ajouter un joueur à la maintenance.")
-    void add(Player target) {
-        player.sendMessage("DONE");
-        target.sendMessage("DONE2");
+    @SubCommand(arg = "add %player_name%", description = "Ajouter un joueur à la maintenance.")
+    void add(String targetName) {
+        if (MaintenanceManager.getMaintenance().getNameWhitelist().contains(targetName)) {
+            player.sendMessage(prefix + "Le joueur " + color + targetName + "§f est déjà dans la maintenance.");
+            return;
+        }
+
+        MaintenanceManager.getMaintenance().getNameWhitelist().add(targetName);
+        MaintenanceManager.getInstance().updateCacheEverywhere();
+        player.sendMessage(prefix + "Le joueur " + color + targetName + "§f a été §aajouté§f à la maintenance.");
     }
-    @SubCommand(arg = "remove %player% %string% %string_builder%", description = "Retirer un joueur de la maintenance.")
-    void remove(Player target, String text, String text1) {
-        player.sendMessage("DONE");
-        target.sendMessage("DONE2 " + text + ".\n" + text1);
+
+    @SubCommand(arg = "remove %player_name%", description = "Retirer un joueur de la maintenance.")
+    void remove(String targetName) {
+        if (!MaintenanceManager.getMaintenance().getNameWhitelist().contains(targetName)) {
+            player.sendMessage(prefix + "Le joueur " + color + targetName + "§f n'est pas dans la maintenance.");
+            return;
+        }
+
+        MaintenanceManager.getMaintenance().getNameWhitelist().remove(targetName);
+        MaintenanceManager.getInstance().updateCacheEverywhere();
+        player.sendMessage(prefix + "Le joueur " + color + targetName + "§f a été §cretiré§f de la maintenance.");
     }
-    @SubCommand(arg = "test %string% one %int%", description = "hehe boy.")
-    void test(String text, Integer i) {
-        player.sendMessage("DONE " + text + i);
-    }
-    @SubCommand(arg = "test %string% two %int%", description = "hehe boy2.")
-    void test1(String text, Integer i) {
-        player.sendMessage("DONE " + text + i);
+
+    @SubCommand(arg = "set %boolean%", description = "Changer le statut de la maintenance.")
+    void set(boolean status) {
+        MaintenanceManager.getMaintenance().setActive(status);
+        MaintenanceManager.getInstance().updateCacheEverywhere();
+        player.sendMessage(prefix + "Le statut de la maintenance est désormais: " + color + status);
     }
 }

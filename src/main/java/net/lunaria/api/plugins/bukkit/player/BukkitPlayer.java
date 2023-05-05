@@ -42,12 +42,12 @@ public class BukkitPlayer extends Account {
     }
 
     @Deprecated
-    public long getMaxExp() {
-        return (long) (Math.pow(getLevel(), 2) * 100);
+    public int getMaxExp() {
+        return (getLevel()+100)*4;
     }
     @Deprecated
     public float getProgressExp() {
-        return (float) ((int) getExp() / getMaxExp());
+        return (float) (getExp() / getMaxExp()) * 100;
     }
     public String getFormattedExp(int totalBars, char symbol, ChatColor[] completedColor, ChatColor[] notCompletedColor) {
         float progress = getProgressExp();

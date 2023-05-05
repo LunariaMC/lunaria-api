@@ -1,42 +1,56 @@
 package net.lunaria.api.core.maintenance;
 
-import com.google.gson.Gson;
 import lombok.Getter;
-import lombok.Setter;
-import net.lunaria.api.core.redis.RedisDBIndex;
-import net.lunaria.api.core.redis.RedisManager;
+import net.lunaria.api.core.cache.redis.single.IRedisSingleCache;
+import net.lunaria.api.core.maintenance.redis.MaintenanceRedisMessage;
 
-public class MaintenanceManager {
-    public static @Getter @Setter Maintenance maintenance;
+import java.lang.reflect.Type;
 
-    private final static String REDIS_KEY = "Maintenance.Infos";
+public class MaintenanceManager implements IRedisSingleCache<Maintenance, MaintenanceRedisMessage> {
+    private static final String REDIS_KEY = "maintenance_infos";
 
-    public static Maintenance getMaintenanceFromRedis() {
-        String json = RedisManager.get(REDIS_KEY, RedisDBIndex.GLOBAL_INFOS.getIndex());
+    private static @Getter Maintenance maintenance;
 
-        if (json == null) {
-            saveMaintenance(new Maintenance());
-            return maintenance;
-        }
-        return new Gson().fromJson(json, Maintenance.class);
-    }
-    public static void saveMaintenanceToRedis(Maintenance maintenance) {
-        String json = new Gson().toJson(maintenance);
-        RedisManager.set(REDIS_KEY, json, RedisDBIndex.GLOBAL_INFOS.getIndex());
-    }
+    private static @Getter MaintenanceManager instance;
 
-    public static Maintenance getMaintenance() {
+    public MaintenanceManager() {
+        instance = this;
+
+        this.getCacheFromRedis();
         if (maintenance == null) {
-            maintenance = getMaintenanceFromRedis();
+            maintenance = new Maintenance();
+            maintenance.nameWhitelist.add("Papipomme");
+            this.updateCacheEverywhere();
         }
-        maintenance.nameWhitelist.add("Papipomme");
-        maintenance.nameWhitelist.add("NeiZow");
+    }
 
+    @Override
+    public Maintenance getCache() {
         return maintenance;
     }
-    public static void saveMaintenance(Maintenance _maintenance) {
+
+    @Override
+    public void setCache(Maintenance _maintenance) {
         maintenance = _maintenance;
-        new Thread(() -> {saveMaintenanceToRedis(_maintenance);}).start();
     }
 
+    @Override
+    public Type getElementType() {
+        return Maintenance.class;
+    }
+
+    @Override
+    public Class<MaintenanceRedisMessage> getUpdateRedisMessageClass() {
+        return MaintenanceRedisMessage.class;
+    }
+
+    @Override
+    public MaintenanceRedisMessage createBlankRedisMessage() {
+        return new MaintenanceRedisMessage();
+    }
+
+    @Override
+    public String getRedisKey() {
+        return REDIS_KEY;
+    }
 }
