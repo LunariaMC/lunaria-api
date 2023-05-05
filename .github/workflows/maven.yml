@@ -39,7 +39,7 @@ jobs:
       with:
         draft: false
         prerelease: false
-        release_name: ${{ github.ref }}
+        release_name: '${project.version}'
         tag_name: "prod"
         body: "lunaria build"
       env:
