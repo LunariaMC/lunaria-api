@@ -33,13 +33,16 @@ jobs:
     - name: Get Version from POM
       run: echo "::set-output name=version::$(mvn -q -Dexec.executable="echo" -Dexec.args='${project.version}' --non-recursive exec:exec)"
       id: version
+    - name: Get Short SHA
+      run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+      id: sha
     - name: Create Release
       uses: actions/create-release@v1
       id: create_release
       with:
         draft: false
         prerelease: false
-        release_name: ${{ github.ref }}
+        release_name: ${{ steps.version.outputs.version }}.${{ steps.sha.outputs.sha_short }}
         tag_name: "prod"
         body: "lunaria build"
       env:
