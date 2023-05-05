@@ -30,3 +30,26 @@ jobs:
 
     - name: Build with Maven
       run: mvn clean install
+    - name: Get Version from POM
+      run: echo "::set-output name=version::$(mvn -q -Dexec.executable="echo" -Dexec.args='${project.version}' --non-recursive exec:exec)"
+      id: version
+    - name: Create Release
+      uses: actions/create-release@v1
+      id: create_release
+      with:
+        draft: false
+        prerelease: false
+        release_name: ${{ github.ref }}
+        tag_name: ${{ github.ref }}
+        body_path: CHANGELOG.md
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+    - name: Upload Java File
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: "target/lunaria-api-${{ steps.version.outputs.version }}.jar"
+        asset_name: lunaria-api-${{ steps.version.outputs.version }}.jar
+        asset_content_type: application/java-archive
