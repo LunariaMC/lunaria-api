@@ -44,7 +44,7 @@ jobs:
         prerelease: false
         release_name: ${{ steps.version.outputs.version }}.${{ steps.sha.outputs.sha_short }}
         tag_name: "prod"
-        body: "lunaria build"
+        body: Last build ${{ steps.version.outputs.version }}.${{ steps.sha.outputs.sha_short }}
       env:
         GITHUB_TOKEN: ${{ github.token }}
     - name: Upload Java File
