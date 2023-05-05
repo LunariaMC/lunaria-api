@@ -27,8 +27,6 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
-    - name: Change Maven version
-      run: mvn versions:set -DnewVersion=$(mvn -q -Dexec.executable="echo" -Dexec.args='${project.version}' --non-recursive exec:exec).$(git rev-parse --short HEAD)
     - name: Build with Maven
       run: mvn clean install
     - name: Get Version from POM
@@ -43,8 +41,8 @@ jobs:
       with:
         draft: false
         prerelease: false
-        release_name: ${{ steps.version.outputs.version }}
-        tag_name: ${{ steps.version.outputs.version }}.${{ steps.sha.outputs.sha_short }}
+        release_name: ${{ steps.version.outputs.version }}.${{ steps.sha.outputs.sha_short }}
+        tag_name: ${{ steps.sha.outputs.sha_short }}
         body: Last build ${{ steps.sha.outputs.sha_short }}
       env:
         GITHUB_TOKEN: ${{ github.token }}
