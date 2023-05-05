@@ -27,7 +27,6 @@ net\lunaria\api\plugins\bukkit\utils\Reflection$DataType.class
 net\lunaria\api\core\utils\CopyFileVisitor.class
 net\lunaria\api\core\cache\ICollectionCacheContainer.class
 net\lunaria\api\core\text\MoneyFormatUtil.class
-net\lunaria\api\core\server\LunariaServerIdentifier.class
 net\lunaria\api\plugins\bukkit\utils\scoreboard\Sidebar.class
 net\lunaria\api\core\cache\redis\single\IRedisSingleCache.class
 net\lunaria\api\core\redis\RedisManager.class
