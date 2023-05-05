@@ -1,4 +1,4 @@
 name: LunaAPI
 author: Lunaria
-version: ${project.version}
+version: 1.0-SNAPSHOT
 main: net.lunaria.api.plugins.bungee.BungeeAPI
