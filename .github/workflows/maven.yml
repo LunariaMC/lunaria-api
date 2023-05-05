@@ -27,7 +27,7 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
-    - uses: SpraxDev/Action-SpigotMC@v4
+    - uses: Papipomme/Action-SpigotMC@v4
       with:
         versions: 1.8.8 # Optional
         remapped: true # Optional
